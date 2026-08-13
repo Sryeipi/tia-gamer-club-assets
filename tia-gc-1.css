@@ -1,0 +1,287 @@
+/* ===== FUENTES: Ubuntu es la familia real de tia.com.ec (recon 2026-08-08).
+   Si legal pide self-host, subir woff2 a la mediateca y cambiar por @font-face. ===== */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Ubuntu+Condensed&display=swap');
+
+/* ===== NEUTRALIZAR EL TEMA (aquene pinta h1-h6 de #111 y links rosa;
+   body.custom-background mete el fondo morado de BroooTv) ===== */
+html{background:#D9D9D9 !important}
+body.custom-background,body{background-color:#D9D9D9 !important;background-image:none !important}
+body{margin:0 !important;padding:0 !important;overflow-x:hidden}
+#page,.site,.site.container,#content,.site-content,#main,.site-main,.th-content,.entry-content,.hentry-wrapper,.elementor,.elementor-page{background:transparent !important;max-width:none !important;width:auto !important;margin:0 !important;padding:0 !important}
+article.page,article[id^="post-"]{margin:0 !important;padding:0 !important;background:transparent !important}
+/* La plantilla del tema envuelve la pagina en la cabecera y el pie de BroooTv y
+   pinta el titulo encima del hero. Lo correcto es asignarle la plantilla
+   "Elementor Canvas" en el editor (Atributos de pagina), pero el REST no acepta
+   ese campo, asi que se oculta aqui. Este CSS viaja dentro del contenido: solo
+   afecta a las paginas del torneo, no al resto del sitio. */
+.site-header,.site-footer,.entry-title,.post-navigation,.th-single-nav,.entry-footer,.entry-meta{display:none !important}
+
+/* ===== CONTENEDOR: KV claro del arte (gris textura de cruces + rojo Tia) ===== */
+#tiax{
+  --red:#E4002B;          /* rojo Tia (logo.svg y KV entregado) */
+  --red-d:#B80023;        /* hover + texto rojo pequeno sobre claro (AA 6.1) */
+  --y:#FFE70D;            /* amarillo Club MAS: chip y avisos del programa */
+  --ink:#161616;--ink2:#4A4A4A;--ink3:#6E6E6E;--line:rgba(0,0,0,.12);
+  --card:#FFFFFF;
+  --disp:'Ubuntu','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --cond:'Ubuntu Condensed','Arial Narrow',Arial,sans-serif;
+  --body:'Ubuntu','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  position:relative;z-index:1;isolation:isolate;
+  width:100vw;margin-left:calc(50% - 50vw);
+  background-color:#D9D9D9;
+  /* patron de cruces derivado del KV "Landing recursos-01" (ARTE-06) */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M21.2 24h5.6M24 21.2v5.6' stroke='%23BDBDBD' stroke-width='1.3'/%3E%3C/svg%3E"),linear-gradient(180deg,#E4E4E4,#D6D6D6 55%,#CFCFCF);
+  background-repeat:repeat,no-repeat;background-size:48px 48px,100% 100%;background-attachment:scroll;
+  color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;
+  text-align:center;-webkit-font-smoothing:antialiased;overflow-x:clip;
+}
+#tiax *,#tiax *::before,#tiax *::after{box-sizing:border-box}
+#tiax h1,#tiax h2,#tiax h3,#tiax p,#tiax ul,#tiax ol,#tiax li,#tiax figure{margin:0;padding:0;color:inherit;font-family:inherit;line-height:inherit}
+#tiax ul,#tiax ol{list-style:none}
+#tiax img{max-width:100%;height:auto;display:block;border:0}
+#tiax a,#tiax a:link,#tiax a:visited,#tiax a:hover,#tiax a:active{color:inherit;text-decoration:none;font-weight:inherit}
+#tiax h1,#tiax h2,#tiax h3{font-weight:700}
+#tiax strong,#tiax b{font-weight:700;color:var(--ink)}
+#tiax section{position:relative;scroll-margin-top:78px}
+#tiax .wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(18px,5vw,48px)}
+
+/* cabecera de seccion */
+#tiax .sec-head{margin-bottom:34px}
+/* El antetitulo lleva la informacion que el lector busca ("asi se juega",
+   "premios oficiales"): tiene que percibirse, no ser un adorno. Mas cuerpo,
+   mas peso y menos espaciado que antes. */
+#tiax .eyebrow{display:block;font-family:var(--cond);text-transform:uppercase;letter-spacing:.13em;font-size:clamp(1rem,2vw,1.25rem);font-weight:700;color:var(--red-d);margin-bottom:10px}
+#tiax .ttl{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;color:var(--ink);font-size:clamp(2.1rem,5.2vw,3.8rem);line-height:.98;text-wrap:balance}
+#tiax .ttl em{font-style:normal;color:var(--red)}
+#tiax .lead{color:var(--ink2);font-size:clamp(1rem,1.6vw,1.1rem);max-width:56ch;margin:16px auto 0;text-wrap:balance}
+
+/* chip Club MAS */
+/* Antes era una pildora amarilla y la gente intentaba hacer clic creyendo que
+   llevaba a Club MAS. Ahora es un resaltado de texto (como un marcador): se
+   distingue igual, pero se lee como palabra, no como boton. */
+#tiax .clubmas{display:inline;background-image:linear-gradient(transparent 60%,rgba(255,231,13,.9) 60%);color:inherit;font:inherit;font-weight:700;text-transform:inherit;letter-spacing:inherit;padding:0 .1em;white-space:nowrap;border:0}
+
+/* botones */
+#tiax .btn{display:inline-block;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;padding:13px 30px;border:2px solid transparent;border-radius:999px;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s var(--ease)}
+/* el reset de arriba (#tiax a:link{color:inherit}) es MAS especifico que una clase
+   sola, asi que los botones que son enlaces necesitan nombrar tambien el elemento:
+   sin esto el texto de los CTA sale en tinta oscura sobre el rojo (contraste 3.7) */
+#tiax .btn-r,#tiax a.btn-r:link,#tiax a.btn-r:visited,#tiax a.btn-r:hover,#tiax a.btn-r:active{background:var(--red);color:#fff;border-color:var(--red);font-weight:700}
+#tiax .btn-r:hover,#tiax a.btn-r:hover{background:var(--red-d);border-color:var(--red-d);transform:translateY(-2px)}
+#tiax .btn-o,#tiax a.btn-o:link,#tiax a.btn-o:visited{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.38)}
+#tiax .btn-o:hover,#tiax a.btn-o:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+#tiax .btn:focus-visible,#tiax a:focus-visible,#tiax button:focus-visible,#tiax input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+#tiax a:focus:not(:focus-visible),#tiax button:focus:not(:focus-visible){outline:none}
+
+/* ===== NAV ===== */
+#tiax .nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px clamp(16px,4vw,44px);background:rgba(255,255,255,.94);border-bottom:3px solid var(--red);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#tiax .nav .logo-img{height:clamp(30px,3.4vw,40px);width:auto}
+#tiax .nav-r{display:flex;align-items:center;gap:clamp(14px,2.2vw,26px)}
+#tiax .nav-r a:not(.btn){font-family:var(--cond);text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;color:var(--ink2)}
+#tiax .nav-r a:not(.btn):hover{color:var(--red-d)}
+#tiax .nav .btn{padding:8px 18px;font-size:.72rem;letter-spacing:.06em}
+body.admin-bar #tiax .nav{top:32px}
+@media (max-width:782px){body.admin-bar #tiax .nav{top:46px}}
+
+/* ===== HERO: lockup + personajes del arte flanqueando ===== */
+#tiax .hero{display:grid;align-items:center;padding:clamp(26px,4vh,54px) 0 0;overflow:hidden}
+/* la columna central manda: primero el texto (700px), lo que sobra se reparte
+   entre los dos personajes. Asi el titular nunca se comprime en pantallas medias. */
+#tiax .hero .wrap{width:100%;max-width:1560px;display:grid;grid-template-columns:1fr minmax(0,740px) 1fr;gap:clamp(4px,1vw,18px);align-items:end;text-align:center}
+#tiax .hero-txt{align-self:center;padding-block:clamp(18px,3.2vh,44px)}
+#tiax .h-char{height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0}
+/* Cada personaje viene recortado a su figura, sin aire: sus lienzos tienen
+   anchos distintos porque las poses lo son. Por eso manda la ALTURA — asi los
+   dos miden exactamente lo mismo y se apoyan en la misma linea, sea cual sea
+   su pose. El ancho solo interviene si la columna se estrecha. */
+#tiax .h-char img{width:auto;height:auto;max-height:min(54vh,500px);max-width:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 22px 34px rgba(0,0,0,.30))}
+#tiax .h-char.l img{margin-left:auto}
+#tiax .h-char.r img{margin-right:auto}
+#tiax .h-lockup{width:clamp(280px,36vw,520px);height:auto;margin:0 auto clamp(16px,2.4vh,26px)}
+#tiax .h-kicker{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(1.25rem,3vw,2rem);line-height:1.06;color:var(--ink)}
+#tiax .h-kicker em{font-style:normal;color:var(--red)}
+#tiax .hero h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-.015em;font-size:clamp(2.9rem,8.2vw,6rem);line-height:.92;color:var(--red);margin:clamp(8px,1.4vh,16px) 0 clamp(10px,1.6vh,18px)}
+/* cada tramo entero o en su propia linea: nunca "GRAN / FINAL PRESENCIAL" */
+#tiax .h-mode{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.3rem);color:var(--ink);line-height:1.35;text-wrap:balance}
+#tiax .h-mode .seg,#tiax .h-note .seg{white-space:nowrap}
+/* el separador viaja pegado a su segmento: nunca amanece huerfano al inicio de linea */
+#tiax .h-mode .seg:not(:last-child)::after{content:"\00B7";color:var(--red);padding-left:.5em}
+#tiax .h-note{margin-top:clamp(12px,1.8vh,18px);color:var(--ink2);font-size:clamp(.92rem,1.5vw,1rem);text-wrap:balance;max-width:60ch;margin-inline:auto}
+#tiax .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:clamp(20px,2.8vh,32px)}
+
+/* ===== TICKER ===== */
+#tiax .ticker{background:var(--red);border-block:3px solid rgba(0,0,0,.85);padding:9px 0;overflow:hidden;position:relative}
+#tiax .tick-track{display:flex;width:max-content;animation:tiatick 22s linear infinite;will-change:transform}
+#tiax .tick-track span{font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.92rem;font-weight:700;color:#fff;white-space:nowrap;display:flex;align-items:center;padding:0 16px}
+#tiax .tick-track span::after{content:"";width:8px;height:8px;background:rgba(0,0,0,.85);transform:rotate(45deg);margin-left:32px}
+@keyframes tiatick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#tiax .ticker:hover .tick-track{animation-play-state:paused}
+
+/* ===== SECCIONES ===== */
+#tiax .sec{padding:clamp(52px,7vw,78px) 0;background:transparent}
+
+/* premios: arte oficial vertical entregado por Tia (tia-gc-premios-v3.webp) */
+#tiax .prize-art{width:min(820px,100%);margin-inline:auto;filter:drop-shadow(0 18px 34px rgba(0,0,0,.18))}
+
+/* pasos */
+#tiax .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin-inline:auto;text-align:left}
+#tiax .steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px 24px;box-shadow:0 10px 26px rgba(0,0,0,.08);transition:transform .3s var(--ease),border-color .3s}
+#tiax .steps li:hover{transform:translateY(-6px);border-color:var(--red)}
+#tiax .steps .n{width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--disp);font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+#tiax .steps h3{font-family:var(--cond);text-transform:uppercase;letter-spacing:.05em;font-weight:400;font-size:1.05rem;color:var(--ink);margin-top:14px}
+#tiax .steps p{color:var(--ink2);font-size:.93rem;margin-top:8px;line-height:1.55;max-width:44ch}
+
+/* ===== FASES: online + presencial ===== */
+#tiax .fases{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1000px;margin-inline:auto;text-align:left}
+#tiax .fase{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 28px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.08);transition:transform .3s var(--ease),border-color .3s}
+#tiax .fase:hover{transform:translateY(-6px);border-color:var(--red)}
+/* acento limpio en el borde superior en vez del halo rosado, que sobre el KV
+   claro se leia como una mancha de impresion */
+#tiax .fase::after{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--red)}
+#tiax .f-tag{display:inline-block;font-family:var(--cond);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;background:var(--red);color:#fff;padding:7px 14px;border-radius:999px}
+#tiax .fase h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2rem);line-height:1;color:var(--ink);margin-top:16px}
+#tiax .fase p{color:var(--ink2);font-size:.95rem;margin-top:10px;line-height:1.6;max-width:46ch}
+#tiax .fase .f-when{display:block;font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;color:var(--red-d);margin-top:16px}
+
+/* ===== REGISTRO ===== */
+#tiax .reg-box{width:min(620px,100%);margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(26px,3.4vw,38px);text-align:left;box-shadow:0 16px 40px rgba(0,0,0,.12)}
+#tiax .reg-box form{margin:0}
+#tiax .form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+#tiax .f-field{margin-bottom:16px}
+#tiax .f-field.span2{grid-column:1/-1}
+#tiax .reg-box label{display:block;font-family:var(--cond);text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:var(--ink3);margin:0 0 6px;font-weight:400;line-height:1.4}
+/* el borde tiene que verse: con #CFCFCF sobre #F4F4F4 el campo no se distinguia del fondo */
+#tiax .reg-box input[type=text],#tiax .reg-box input[type=email],#tiax .reg-box input[type=tel],#tiax .reg-box input[type=number]{width:100%;background:#F4F4F4;border:1px solid #8C8C8C;color:var(--ink);font-family:var(--body);font-size:16px;padding:12px 15px;border-radius:10px;-webkit-appearance:none;appearance:none}
+/* quitar el anillo solo donde el borde rojo ya avisa; las casillas conservan el suyo */
+#tiax .reg-box input[type=text]:focus,#tiax .reg-box input[type=email]:focus,#tiax .reg-box input[type=tel]:focus,#tiax .reg-box input[type=number]:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(228,0,43,.18);outline:none;background:#fff}
+#tiax .reg-box input.bad{border-color:var(--red);background:rgba(228,0,43,.06)}
+#tiax .f-hint{font-size:.72rem;color:var(--ink3);margin-top:5px;line-height:1.4}
+/* honeypot fuera de vista (no display:none: algunos bots lo detectan) */
+#tiax .hp-wrap{position:absolute !important;left:-9999px !important;top:auto !important;width:1px;height:1px;overflow:hidden}
+/* casillas */
+#tiax .f-checks{margin:20px 0 22px;padding-top:20px;border-top:1px solid rgba(0,0,0,.1);display:grid;gap:14px}
+#tiax .f-check{display:flex;align-items:flex-start;gap:11px;text-align:left}
+#tiax .f-check input[type=checkbox]{position:static;flex:0 0 auto;width:18px;height:18px;margin:.2em 0 0;accent-color:var(--red);-webkit-appearance:checkbox;appearance:checkbox;cursor:pointer}
+#tiax .f-check label{flex:1 1 auto;display:block;position:static;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:.85rem;color:var(--ink2);line-height:1.55;cursor:pointer;margin:0;padding:0;text-indent:0;text-align:left;overflow-wrap:break-word}
+#tiax .f-check .req{color:var(--ink3);font-size:.94em}
+#tiax .f-check a{color:var(--ink);border-bottom:1px solid rgba(228,0,43,.55);white-space:nowrap}
+#tiax .f-check a:hover{color:var(--red-d)}
+/* ===== REGISTRO EN DOS PASOS (verificar Club MAS -> completar datos) ===== */
+#tiax .paso[hidden]{display:none}
+#tiax .pasos-guia{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px;padding:0 0 18px;border-bottom:1px solid var(--line)}
+#tiax .pasos-guia li{display:flex;align-items:center;gap:8px;font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;color:var(--ink3)}
+#tiax .pasos-guia li span{width:24px;height:24px;border-radius:50%;background:#E8E8E8;color:var(--ink3);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700}
+#tiax .pasos-guia li.on{color:var(--ink)}
+#tiax .pasos-guia li.on span{background:var(--red);color:#fff}
+#tiax .pasos-guia li.ok span{background:#177245;color:#fff}
+#tiax .f-ok-ced{background:rgba(23,114,69,.10);border:1px solid rgba(23,114,69,.35);border-radius:10px;padding:11px 14px;margin:0 0 18px;font-size:.9rem;color:#0F4A2C;line-height:1.5}
+#tiax .f-espera{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0 0;font-size:.88rem;color:var(--ink2)}
+#tiax .f-espera[hidden]{display:none}
+#tiax .spin{width:16px;height:16px;flex:none;border-radius:50%;border:2px solid rgba(0,0,0,.18);border-top-color:var(--red);animation:tiaspin .8s linear infinite}
+@keyframes tiaspin{to{transform:rotate(360deg)}}
+#tiax .f-volver{display:block;margin:14px auto 0;background:none;border:0;padding:6px 10px;font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--ink2);cursor:pointer;text-decoration:underline}
+#tiax .f-volver:hover{color:var(--red-d)}
+#tiax .reg-box input[readonly]{background:#ECECEC;color:var(--ink2);cursor:default}
+#tiax .f-err{background:rgba(228,0,43,.08);border:1px solid rgba(228,0,43,.4);border-radius:10px;color:var(--ink);font-size:.85rem;line-height:1.5;padding:11px 14px;margin:0 0 16px}
+#tiax .f-err[hidden]{display:none}
+#tiax .reg-box button[type=submit],#tiax .reg-box .pushbutton-wide{display:block;width:auto;min-width:230px;margin:0 auto;background:var(--red);color:#fff;border:2px solid var(--red);font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;font-weight:700;padding:14px 34px;cursor:pointer;border-radius:999px;transition:background .18s,border-color .18s}
+#tiax .reg-box button[type=submit]:hover,#tiax .reg-box .pushbutton-wide:hover{background:var(--red-d);border-color:var(--red-d)}
+#tiax .reg-box button[type=submit][disabled]{opacity:.65;cursor:wait}
+#tiax .reg-legal{font-size:.78rem;color:var(--ink3);line-height:1.75;margin-top:22px;padding-top:18px;border-top:1px solid rgba(0,0,0,.1);text-align:left;text-wrap:pretty;overflow-wrap:break-word}
+#tiax .reg-legal a{color:var(--ink2);border-bottom:1px solid rgba(228,0,43,.55);white-space:nowrap}
+#tiax .reg-legal a:hover{color:var(--red-d)}
+
+/* ===== FOOTER: la banda roja del KV ===== */
+#tiax footer{background:var(--red);border-top:3px solid rgba(0,0,0,.85);padding:clamp(36px,4.4vw,52px) 0 38px;color:#fff}
+#tiax .foot-logos{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
+#tiax .foot-logos img{height:clamp(40px,5vw,56px);width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+#tiax .soc{display:flex;gap:12px;justify-content:center;margin-top:24px}
+#tiax .soc a{width:40px;height:40px;border:1px solid rgba(255,255,255,.45);border-radius:50%;display:flex;align-items:center;justify-content:center}
+#tiax .soc a:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+#tiax .soc svg{width:16px;height:16px;fill:#fff;display:block}
+#tiax .foot-legal{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.28);font-size:.76rem;line-height:2;color:#fff;max-width:70ch;margin-inline:auto}
+#tiax .foot-legal a{color:#fff;border-bottom:1px solid rgba(255,255,255,.55);white-space:nowrap}
+#tiax .foot-legal a:hover{border-color:#fff}
+#tiax .foot-legal .sep{color:rgba(255,255,255,.65);padding:0 4px}
+
+/* ===== POP-UP: 4 estados ===== */
+#tiax .modal[hidden]{display:none}
+#tiax .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;overscroll-behavior:contain}
+#tiax .modal-bg{position:absolute;inset:0;background:rgba(20,20,22,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#tiax .ok-card{position:relative;width:min(500px,100%);margin:auto;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:18px;padding:clamp(26px,3.4vw,38px);text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.35);animation:tiapop .45s var(--ease) both}
+#tiax .ok-card.st[hidden]{display:none}
+@keyframes tiapop{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+#tiax .ok-close{position:absolute;top:12px;right:12px;width:36px;height:36px;min-width:0;flex:none;padding:0;margin:0;border-radius:50%;background:rgba(0,0,0,.06);border:1px solid var(--line);color:var(--ink);font-size:1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#tiax .ok-close:hover{background:var(--red);border-color:var(--red);color:#fff}
+#tiax .ok-check{width:66px;height:66px;flex:none;margin:0 auto 16px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center}
+#tiax .ok-check svg{width:32px;height:32px;stroke:#fff;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+html.js #tiax .ok-check svg.draw{stroke-dasharray:34;stroke-dashoffset:34;animation:tiadraw .55s .3s var(--ease) forwards}
+@keyframes tiadraw{to{stroke-dashoffset:0}}
+#tiax .ok-check.warn{background:var(--y);border:1px solid rgba(0,0,0,.2)}
+#tiax .ok-check.warn span{font-family:var(--disp);font-weight:700;font-size:2rem;color:#141414;line-height:1}
+#tiax .ok-check.err{background:var(--red)}
+#tiax .ok-check.err span{font-family:var(--disp);font-weight:700;font-size:1.7rem;color:#fff;line-height:1}
+#tiax .ok-card h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,2.3rem);line-height:1;color:var(--ink)}
+#tiax .ok-card .sub{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(.95rem,2.1vw,1.15rem);color:var(--red-d);margin-top:6px}
+#tiax .ok-card .t{color:var(--ink2);font-size:.94rem;margin:13px auto 0;max-width:42ch;line-height:1.6}
+#tiax .ok-data{display:grid;gap:8px;margin:20px auto 0;text-align:left}
+#tiax .ok-data li{background:#F6F6F6;border:1px solid #E4E4E4;border-radius:10px;padding:11px 14px;font-size:.86rem;color:var(--ink2);line-height:1.5}
+#tiax .ok-data b{font-family:var(--cond);text-transform:uppercase;letter-spacing:.09em;font-size:.69rem;font-weight:400;display:block;margin-bottom:3px;color:var(--red-d)}
+#tiax .wa,#tiax a.wa:link,#tiax a.wa:visited,#tiax a.wa:hover{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:var(--cond);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:.92rem;padding:15px 28px;border-radius:999px;margin-top:20px;border:2px solid var(--red);transition:background .2s,transform .2s var(--ease)}
+#tiax .wa:hover{background:var(--red-d);border-color:var(--red-d);transform:translateY(-2px)}
+#tiax .wa svg{width:19px;height:19px;fill:#fff;flex:none}
+#tiax .wa[hidden]{display:none}
+#tiax .ok-note{font-size:.8rem;color:var(--ink3);margin-top:12px;line-height:1.55}
+#tiax .ok-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid rgba(0,0,0,.1)}
+#tiax .ok-links .btn{font-size:.78rem;padding:10px 20px}
+
+/* ===== MOTION ===== */
+html.js #tiax .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--d,0s)}
+html.js #tiax .rv.on{opacity:1;transform:none}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1200px){
+  #tiax .hero .wrap{grid-template-columns:1fr minmax(0,540px) 1fr;gap:0}
+  #tiax .h-char img{max-height:min(46vh,400px)}
+}
+@media (max-width:1024px){
+  #tiax .steps{grid-template-columns:1fr 1fr}
+  #tiax .hero .wrap{grid-template-columns:1fr minmax(0,470px) 1fr}
+  #tiax .h-char img{max-height:min(40vh,340px)}
+  /* los tres CTA en una sola fila tambien cuando el centro se estrecha */
+  #tiax .hero-cta{gap:9px}
+  #tiax .hero-cta .btn{padding:12px 18px;font-size:.82rem;letter-spacing:.05em}
+}
+/* bajo 860 los personajes ya no caben a los lados sin aplastar el titular:
+   pasan juntos DEBAJO del bloque de texto, en pareja y a la misma base */
+@media (max-width:860px){
+  #tiax .hero .wrap{grid-template-columns:1fr 1fr;grid-template-areas:"txt txt" "cl cr";gap:0 clamp(4px,2vw,18px);align-items:end}
+  #tiax .hero-txt{grid-area:txt}
+  #tiax .h-char.l{grid-area:cl;display:flex;justify-content:flex-end}
+  #tiax .h-char.r{grid-area:cr;justify-content:flex-start}
+  #tiax .h-char img{max-height:min(38vh,300px);max-width:min(46vw,240px);margin-inline:0}
+  #tiax .fases{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  #tiax{font-size:15px}
+  #tiax .nav-r a:not(.btn){display:none}
+  #tiax .nav{padding:10px 14px}
+  #tiax .steps{grid-template-columns:1fr;gap:12px}
+  #tiax .steps li{padding:20px 18px}
+  #tiax .form-grid2{grid-template-columns:1fr}
+  #tiax .reg-box{padding:24px 20px}
+  #tiax .reg-box button[type=submit]{width:100%;min-width:0}
+  #tiax .modal{padding:12px}
+  #tiax .ok-card{padding:26px 20px;margin-block:auto}
+  #tiax .wa{width:100%}
+  #tiax .ok-links .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  #tiax .spin{animation-duration:1.6s}
+  /* la barra sigue corriendo lenta: elemento de marca del formato torneo */
+  #tiax *:not(.tick-track),#tiax *::before,#tiax *::after{animation:none !important;transition-duration:.01ms !important}
+  html.js #tiax .rv{opacity:1;transform:none}
+  #tiax .tick-track{animation:none !important;transform:none !important;width:auto;justify-content:center;flex-wrap:wrap}
+  html.js #tiax .ok-check svg.draw{stroke-dashoffset:0 !important}
+}
